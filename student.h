@@ -12,9 +12,10 @@ public:
     double getAverageScore() const;
     int getTotalScore() const;
 
-    int getChineseScore() const;
     std::string getStudentName() const;
     long long getStudentNumber() const;
+
+    int getChineseScore() const;
     int getMathScore() const;
     int getEnglishScore() const;
 

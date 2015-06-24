@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <fstream>
 #include "class.h"
-#include "algorithm.h"
+#include "strategy.h"
 #include "studentfactory.h"
 
 using namespace std;
@@ -14,7 +14,8 @@ void printAnswer(Con &ans)
              << setw(15) << std::left << (*ite)->getStudentNumber()
              << setw(8) << std::left << (*ite)->getChineseScore()
              << setw(8) << std::left << (*ite)->getMathScore()
-             << setw(8) << std::left << (*ite)->getEnglishScore() << endl;
+             << setw(8) << std::left << (*ite)->getEnglishScore()
+             << setw(8) << std::left << (*ite)->getTotalScore() << endl;
     }
 }
 
@@ -30,11 +31,26 @@ int main()
     while (read >> name >> number >> chinese >> math >> english)
         ClassOne.addStudent(studentFactory::Instance()->makeStudent(name, number, chinese, math, english));
 
-    cout << "=================STUDENT MANAGER================\n\n" << endl;
+    cout << "=================STUDENT MANAGER================\n" << endl;
 
     ClassOne.setAlgoritm(new TotalScoreRank());
     Con ans = ClassOne.getAlgorithmResult();
     printAnswer(ans);
 
+    cout << endl << "---------------No pass students--------------------" << endl;
+    ans.clear();
+
+    ClassOne.setAlgoritm(new NoPassList(90));
+    ans = ClassOne.getAlgorithmResult();
+    printAnswer(ans);
+
+    cout << endl << "---------------Up average score students--------------------" << endl;
+    ans.clear();
+
+    ClassOne.setAlgoritm(new upAverageList(100));
+    ans = ClassOne.getAlgorithmResult();
+    printAnswer(ans);
+
+    cout << endl;
     return 0;
 }

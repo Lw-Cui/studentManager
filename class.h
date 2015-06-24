@@ -2,7 +2,7 @@
 #define CLASS
 
 #include "student.h"
-#include "algorithm.h"
+#include "strategy.h"
 #include <vector>
 typedef Con::iterator Ite;
 const int INF = 1 << 30;
@@ -10,12 +10,13 @@ const int INF = 1 << 30;
 class Class
 {
 public:
+    Class();
     void addStudent(student *mate);
-    void setAlgoritm(algorithm *point);
-    Con getAlgorithmResult(int Max = INF, int Min = 0);
+    void setAlgoritm(strategy *point);
+    Con getAlgorithmResult();
 
 private:
-    algorithm *compute;
+    strategy *compute;
     Con classmate;
 };
 
