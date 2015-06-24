@@ -15,7 +15,9 @@ void printAnswer(Con &ans)
              << setw(8) << std::left << (*ite)->getChineseScore()
              << setw(8) << std::left << (*ite)->getMathScore()
              << setw(8) << std::left << (*ite)->getEnglishScore()
-             << setw(8) << std::left << (*ite)->getTotalScore() << endl;
+             << setw(8) << std::left << (*ite)->getTotalScore()
+             << setw(8) << setprecision(1) << fixed
+             << std::left << (*ite)->getAverageScore() << endl;
     }
 }
 
@@ -47,7 +49,7 @@ int main()
     cout << endl << "---------------Up average score students--------------------" << endl;
     ans.clear();
 
-    ClassOne.setAlgoritm(new upAverageList(100));
+    ClassOne.setAlgoritm(new upAverageList(ClassOne.getAverageScore()));
     ans = ClassOne.getAlgorithmResult();
     printAnswer(ans);
 

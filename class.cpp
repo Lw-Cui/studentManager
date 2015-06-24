@@ -24,3 +24,12 @@ Con Class::getAlgorithmResult()
     else
         return Con();
 }
+
+double Class::getAverageScore()
+{
+    int total = 0;
+    for (Ite i = classmate.begin(); i != classmate.end(); i++)
+        total += (*i)->getTotalScore();
+
+    return (double)total / classmate.size() / 3;
+}

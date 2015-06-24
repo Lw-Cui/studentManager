@@ -15,6 +15,8 @@ public:
     void setAlgoritm(strategy *point);
     Con getAlgorithmResult();
 
+    double getAverageScore();
+
 private:
     strategy *compute;
     Con classmate;

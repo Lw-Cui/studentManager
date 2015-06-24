@@ -67,5 +67,4 @@ Con upAverageList::SpecialStudent(Ite beg, Ite end)
 
     sort(result.begin(), result.end());
     return result;
-
 }
