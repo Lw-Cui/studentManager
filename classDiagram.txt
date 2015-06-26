@@ -1,0 +1,48 @@
+@startuml
+
+client --> studentFactory
+client --> Class
+studentFactory ..> student
+student --* Class
+Class *--> strategy : compute
+strategy <|-- TotalScoreRank
+strategy <|-- NoPassList
+strategy <|-- upAverageList
+
+interface client
+
+class studentFactory {
+    {static} instance()
+    makeStudent()
+    {static} studentFactory *
+}
+note left: instance() {return new studentFactory}
+
+class student {
+    string name
+    int Score
+}
+
+class Class {
+    setAlgorithm()
+    getAlgorithmResult()
+
+}
+note left: compute->specialStudent()
+
+abstract class strategy {
+	{abstract} specialStudent()
+}
+
+class NoPassList {
+	specialStudent()
+}
+
+class TotalScoreRank {
+	specialStudent()
+}
+
+class upAverageList {
+	specialStudent()
+}
+@enduml
