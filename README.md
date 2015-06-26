@@ -1,6 +1,6 @@
-# studentManager
+# studentManager ##
 
-## REQUIREMENT
+## REQUIREMENT ##
 
 ### IN ENGLISH ###
 
@@ -38,3 +38,11 @@
 * 打印出名次表，表格内包括学生编号、各科分数、总分和平均分；
 
 * 任意输入一个学号，能够查找出该学生在班级中的排名及其考试分数
+
+
+## IMPLEMENT ##
+
+### class diagram ##
+
+![classDiagram](./classDiagram.png  "Diagram")
+
